@@ -27,7 +27,7 @@ import path from 'path';
 //     })
 // });
 
-//DRY DO NOT REPEAT YOURSELF
+//TRY DO NOT REPEAT YOURSELF
 
 test.describe('FORM PAGE', () => {
     test('Fill the form', async ({ page }) => {
@@ -57,124 +57,124 @@ test.describe('FORM PAGE', () => {
 
 });
 
-test.describe('HTML Form', () => {
-    test('Fill the HTML form', async ({ page }) => {
-        await page.pause();
-        await page.goto('https://testpages.eviltester.com/pages/forms/html-form/');
-        await page.pause();
-        await page.locator('input[name="username"]').fill('TataCapriz');
-        await page.locator('input[name="password"]').fill('Password1234');
-        await page.getByText('Comment').fill('This is my comment for testing purpose');
-        await page.getByRole('button', { name: 'Choose File' }).click();
-        await page.getByText('Checkbox 1').click();
-        await page.getByText('Checkbox 2').click();
-        await page.getByText('Checkbox 3').click();
-        await page.getByText('radio 1').click();
-        await page.getByText('radio 2').click();
-        await page.getByText('radio 3').click();
-        await page.selectOption('select[name="multipleselect[]"]', ['ms3', 'ms1']);
-        await page.selectOption('select[name="dropdown"]', 'dd2');
-        await page.locator('input[type="image"]').click();
-        await page.getByRole('button', { name: 'Cancel' }).click();
-        //await page.getByRole('button', { name: 'Submit' }).click();
-        await expect(page.locator("p:has-text(\"You submitted the form. The details below show the values you entered for processing.\")")).toBeVisible();
-        await page.pause();
-    })
-});
+// test.describe('HTML Form', () => {
+//     test('Fill the HTML form', async ({ page }) => {
+//         await page.pause();
+//         await page.goto('https://testpages.eviltester.com/pages/forms/html-form/');
+//         await page.pause();
+//         await page.locator('input[name="username"]').fill('TataCapriz');
+//         await page.locator('input[name="password"]').fill('Password1234');
+//         await page.getByText('Comment').fill('This is my comment for testing purpose');
+//         await page.getByRole('button', { name: 'Choose File' }).click();
+//         await page.getByText('Checkbox 1').click();
+//         await page.getByText('Checkbox 2').click();
+//         await page.getByText('Checkbox 3').click();
+//         await page.getByText('radio 1').click();
+//         await page.getByText('radio 2').click();
+//         await page.getByText('radio 3').click();
+//         await page.selectOption('select[name="multipleselect[]"]', ['ms3', 'ms1']);
+//         await page.selectOption('select[name="dropdown"]', 'dd2');
+//         await page.locator('input[type="image"]').click();
+//         await page.getByRole('button', { name: 'Cancel' }).click();
+//         //await page.getByRole('button', { name: 'Submit' }).click();
+//         await expect(page.locator("p:has-text(\"You submitted the form. The details below show the values you entered for processing.\")")).toBeVisible();
+//         await page.pause();
+//     })
+// });
 
-test.describe('PRACTICE Form', () => {
-    test('Fill the Practice form', async ({ page }) => {
-        //await page.pause();
-        await page.goto('https://demoqa.com/automation-practice-form');
-        //await page.pause();
-        await page.locator('#firstName').fill('Tata');
-        await page.locator('#lastName').fill('Capriz');
-        await page.locator('#userEmail').fill('tatacapriz@example.com');
-        await page.locator('[for="gender-radio-1"]').click();
-        await page.locator('[for="gender-radio-2"]').click();
-        await page.locator('[for="gender-radio-3"]').click();
-        await page.locator('#userNumber').fill('1234567890');
-        await page.locator('#dateOfBirthInput').click();
-        await page.locator('.react-datepicker__month-select').selectOption('1');
-        await page.locator('.react-datepicker__year-select').selectOption('2000');
-        await page.locator('.react-datepicker__day--015').click();
-        await page.locator('#subjectsInput').fill('Maths');
-        await page.locator('#subjectsInput').press('Enter');
-        await page.locator('label[for="hobbies-checkbox-1"]').click();
-        await page.locator('label[for="hobbies-checkbox-2"]').click();
-        await page.locator('label[for="hobbies-checkbox-3"]').click();
-        await page.locator('#uploadPicture').click();
+// test.describe('PRACTICE Form', () => {
+//     test('Fill the Practice form', async ({ page }) => {
+//         //await page.pause();
+//         await page.goto('https://demoqa.com/automation-practice-form');
+//         //await page.pause();
+//         await page.locator('#firstName').fill('Tata');
+//         await page.locator('#lastName').fill('Capriz');
+//         await page.locator('#userEmail').fill('tatacapriz@example.com');
+//         await page.locator('[for="gender-radio-1"]').click();
+//         await page.locator('[for="gender-radio-2"]').click();
+//         await page.locator('[for="gender-radio-3"]').click();
+//         await page.locator('#userNumber').fill('1234567890');
+//         await page.locator('#dateOfBirthInput').click();
+//         await page.locator('.react-datepicker__month-select').selectOption('1');
+//         await page.locator('.react-datepicker__year-select').selectOption('2000');
+//         await page.locator('.react-datepicker__day--015').click();
+//         await page.locator('#subjectsInput').fill('Maths');
+//         await page.locator('#subjectsInput').press('Enter');
+//         await page.locator('label[for="hobbies-checkbox-1"]').click();
+//         await page.locator('label[for="hobbies-checkbox-2"]').click();
+//         await page.locator('label[for="hobbies-checkbox-3"]').click();
+//         await page.locator('#uploadPicture').click();
 
-        const filePath = path.resolve(__dirname, '../data/il_340x270.4585494486_r3e7.webp');
-        await page.setInputFiles('#uploadPicture', filePath);
+//         const filePath = path.resolve(__dirname, '../data/il_340x270.4585494486_r3e7.webp');
+//         await page.setInputFiles('#uploadPicture', filePath);
 
-        await page.locator('#currentAddress').click();
-        await page.locator('#currentAddress').fill('1234 Elm Street, Springfield, IL');
-        await page.locator('#state').click();
-        await page.locator('[id="react-select-3-input"]').fill('NCR');
-        await page.locator('[id="react-select-3-input"]').fill('Uttar Pradesh');
-        await page.locator('[id="react-select-3-input"]').fill('Haryana');
-        await page.locator('[id="react-select-3-input"]').fill('Rajasthan');
-        await page.getByText('Select City').isDisabled();
-        await page.getByRole('button', { name: 'Submit' }).click();
-        await expect(page.locator('#example-modal-sizes-title-lg')).toHaveText('Thanks for submitting the form');
-        await page.pause();
-    })
-});
+//         await page.locator('#currentAddress').click();
+//         await page.locator('#currentAddress').fill('1234 Elm Street, Springfield, IL');
+//         await page.locator('#state').click();
+//         await page.locator('[id="react-select-3-input"]').fill('NCR');
+//         await page.locator('[id="react-select-3-input"]').fill('Uttar Pradesh');
+//         await page.locator('[id="react-select-3-input"]').fill('Haryana');
+//         await page.locator('[id="react-select-3-input"]').fill('Rajasthan');
+//         await page.getByText('Select City').isDisabled();
+//         await page.getByRole('button', { name: 'Submit' }).click();
+//         await expect(page.locator('#example-modal-sizes-title-lg')).toHaveText('Thanks for submitting the form');
+//         await page.pause();
+//     })
+// });
 
-test.describe('REGISTRATION PAGE', () => {
-    test('Registration Test', async ({ page }) => {
-        await page.pause();
-        await page.goto('https://demoqa.com/register');
-        await page.locator('h1:has-text("Register")').isVisible();
-        await page.locator('h4:has-text("Register to Book Store")').isVisible();
-        await page.locator('#firstname').fill('Tata');
-        await page.locator('#lastname').fill('Capriz');
-        await page.locator('#userName').fill('TataCapriz');
-        await page.locator('input[id="password"]').fill('Password1234!');
-        await page.frameLocator('iframe[title="reCAPTCHA"]').locator('#recaptcha-anchor').click();
-        await page.getByRole('button', { name: 'Register' }).click();
-        //await expect(page.locator('.main-header')).toHaveText('User Name');
-        await page.pause();
-    })
-});
+// test.describe('REGISTRATION PAGE', () => {
+//     test('Registration Test', async ({ page }) => {
+//         await page.pause();
+//         await page.goto('https://demoqa.com/register');
+//         await page.locator('h1:has-text("Register")').isVisible();
+//         await page.locator('h4:has-text("Register to Book Store")').isVisible();
+//         await page.locator('#firstname').fill('Tata');
+//         await page.locator('#lastname').fill('Capriz');
+//         await page.locator('#userName').fill('TataCapriz');
+//         await page.locator('input[id="password"]').fill('Password1234!');
+//         await page.frameLocator('iframe[title="reCAPTCHA"]').locator('#recaptcha-anchor').click();
+//         await page.getByRole('button', { name: 'Register' }).click();
+//         //await expect(page.locator('.main-header')).toHaveText('User Name');
+//         await page.pause();
+//     })
+// });
 
-test.describe('LOGIN PAGE', () => {
-    test('Login Test', async ({ page }) => {
-        await page.pause();
-        await page.goto('https://demoqa.com/login');
-        await page.locator('h1:has-text("Login")').isVisible();
-        await page.locator('h2:has-text("Welcome,")').isVisible();
-        await page.locator('h5:has-text("Login in Book Store")').isVisible();
-        await page.locator('#userName').fill('TataCapriz');
-        await page.locator('input[id="password"]').fill('Password1234!');
-        await page.getByRole('button', { name: 'Login' }).click();
-        //await expect(page.getByText('User Name')).toHaveText('TataCapriz');
-        await page.pause();
+// test.describe('LOGIN PAGE', () => {
+//     test('Login Test', async ({ page }) => {
+//         await page.pause();
+//         await page.goto('https://demoqa.com/login');
+//         await page.locator('h1:has-text("Login")').isVisible();
+//         await page.locator('h2:has-text("Welcome,")').isVisible();
+//         await page.locator('h5:has-text("Login in Book Store")').isVisible();
+//         await page.locator('#userName').fill('TataCapriz');
+//         await page.locator('input[id="password"]').fill('Password1234!');
+//         await page.getByRole('button', { name: 'Login' }).click();
+//         //await expect(page.getByText('User Name')).toHaveText('TataCapriz');
+//         await page.pause();
 
-    })
-});
+//     })
+// });
 
-test.describe('DATE PICKER PAGE', () => {
-    test.only('Navigate to Date Picker Page From Today', async ({ page }) => {
-        await page.goto('https://demoqa.com/date-picker');
-        //await page.pause();
-        await page.locator('h1:has-text("Date Picker")').isVisible();
-        await page.locator('#datePickerMonthYearInput').click();
-        await page.locator('.react-datepicker__month-select').selectOption('11');
-        await page.locator('.react-datepicker__year-select').selectOption('2025');
-        await page.locator('.react-datepicker__day--011').click();
-        await expect(page.locator('#datePickerMonthYearInput')).toHaveValue('12/11/2025');
+// test.describe('DATE PICKER PAGE', () => {
+//     test.only('Navigate to Date Picker Page From Today', async ({ page }) => {
+//         await page.goto('https://demoqa.com/date-picker');
+//         //await page.pause();
+//         await page.locator('h1:has-text("Date Picker")').isVisible();
+//         await page.locator('#datePickerMonthYearInput').click();
+//         await page.locator('.react-datepicker__month-select').selectOption('11');
+//         await page.locator('.react-datepicker__year-select').selectOption('2025');
+//         await page.locator('.react-datepicker__day--011').click();
+//         await expect(page.locator('#datePickerMonthYearInput')).toHaveValue('12/11/2025');
 
-        await page.locator('#dateAndTimePickerInput').click();
-        await page.locator('.react-datepicker__month-read-view').click();
-        await page.locator('.react-datepicker__month-option >> text=December').click();
-        await page.locator('.react-datepicker__year-read-view').click();
-        await page.locator('.react-datepicker__year-option >> text=2025').click();
-        await page.locator('.react-datepicker__day--011').click();
-        await page.locator('.react-datepicker__time-list-item >> text=10:30').click();
-        await expect(page.locator('#dateAndTimePickerInput')).toHaveValue('December 11, 2025 10:30 AM');
-        await page.pause();
-    })
-});
+//         await page.locator('#dateAndTimePickerInput').click();
+//         await page.locator('.react-datepicker__month-read-view').click();
+//         await page.locator('.react-datepicker__month-option >> text=December').click();
+//         await page.locator('.react-datepicker__year-read-view').click();
+//         await page.locator('.react-datepicker__year-option >> text=2025').click();
+//         await page.locator('.react-datepicker__day--011').click();
+//         await page.locator('.react-datepicker__time-list-item >> text=10:30').click();
+//         await expect(page.locator('#dateAndTimePickerInput')).toHaveValue('December 11, 2025 10:30 AM');
+//         await page.pause();
+//     })
+// });
 
