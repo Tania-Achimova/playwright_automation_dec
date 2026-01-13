@@ -10,11 +10,12 @@ jobs:
   test_for_playwright:
     name: Run Playwright Tests
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
@@ -28,7 +29,7 @@ jobs:
         run: npx run form-page
 
       - name: Upload Playwright report HTML
-        if: always() 
+        if: always() # run even if the tests fail
         uses: actions/upload-artifact@v3
         with:
             name: playwright report
