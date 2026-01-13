@@ -26,7 +26,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx run form-page
+        run: npx run form-page.spec.ts
 
       - name: Upload Playwright report HTML
         if: always() # run even if the tests fail
