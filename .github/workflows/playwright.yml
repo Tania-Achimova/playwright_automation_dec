@@ -9,7 +9,7 @@ on:
 jobs:
   test_for_playwright:
     name: Run Playwright Tests
-    runs-on: windows-latest
+    runs-on: macos-latest
     
     # strategy:
     #   matrix:
@@ -31,7 +31,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test tests/iframe.spec.ts
+        run: npx playwright test tests/dragAndDrop.spec.ts
 
       - name: Upload Playwright report HTML
         if: always()
