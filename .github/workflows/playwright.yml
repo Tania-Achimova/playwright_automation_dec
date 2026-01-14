@@ -9,11 +9,11 @@ on:
 jobs:
   test_for_playwright:
     name: Run Playwright Tests
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
     
-    # strategy:
-    #   matrix:
-    #     os: [ubuntu-latest, windows-latest, macos-latest]
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
       - name: Checkout code
@@ -31,12 +31,12 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test tests/dragAndDrop.spec.ts
+        run: npx playwright test tests/lc-login.spec.ts
 
       - name: Upload Playwright report HTML
         if: always()
         uses: actions/upload-artifact@v4
         with:
-            name: playwright-report 
+            name: playwright-report-${{ matrix.os }} 
             path: playwright-report
 
