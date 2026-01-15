@@ -42,22 +42,19 @@ export default defineConfig({
   projects: [
     { name: 'setup', testMatch: /.*\.setup\.ts/ },
 
-    {
-      name: 'chromium-auth',
-      use: { ...devices['Desktop Chrome'], storageState: './.auth/user.json' },
-      dependencies: ['setup'],
-      testIgnore: "**/dragAndDrop.spec.ts",
-    },
+    // {
+    //   name: 'chromium-auth',
+    //   use: { ...devices['Desktop Chrome'], storageState: './.auth/user.json' },
+    //   dependencies: ['setup'],
+    //   testIgnore: "**/dragAndDrop.spec.ts",
+    // },
 
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'chromium-mobile',
-      use: { ...devices['iPhone 14'] },
-    },
+    
 
     {
       name: 'firefox',

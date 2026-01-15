@@ -1,19 +1,19 @@
 import { test as base, chromium, Page } from '@playwright/test';
 
 type MyFixtures = {
-    logInPage: Page;
+    loggedInPage: Page;
 };
 
 export const test = base.extend<MyFixtures>({
-    logInPage: async ({}, use) => {
+    loggedInPage: async ({}, use) => {
         const browser = await chromium.launch();
         const context = await browser.newContext();
         const page = await context.newPage();
         // Perform login steps here
         await page.goto('https://demoqa.com/login');
-        await page.fill('#userName', 'Test123');
-        await page.fill('#password', 'Password1!');
-        await page.click('#login');
+        await page.locator('#userName').fill('Test123');
+        await page.locator('#password').fill('Password1!');
+        await page.locator('#login').click();
 
         await use(page);
         await browser.close();
