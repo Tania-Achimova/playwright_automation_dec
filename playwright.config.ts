@@ -54,23 +54,21 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    
-
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'], viewport: { width: 1280, height: 720 } },
     },
 
-    {
-      name: 'firefox-mobile',
-      use: { ...devices['Galaxy S9+'] },
-    },
+    // {
+    //   name: 'firefox-mobile',
+    //   use: { ...devices['Galaxy S9+'] },
+    // },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'], storageState:'./.auth/user.json' },
-      dependencies: ['setup'],
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'], storageState:'./.auth/user.json' },
+    //   dependencies: ['setup'],
+    // },
 
     // {
     //   name: 'webkit',

@@ -1,23 +1,23 @@
-// import { test as setup, expect } from '@playwright/test';
+import { test as setup, expect } from '@playwright/test';
 
-// const authFile = './.auth/user.json';
+const authFile = './.auth/user.json';
 
-// // setup('Authenticate user', async ({ page }) => {
+setup('Authenticate user', async ({ page }) => {
 
-// //     await page.goto('https://demoqa.com/login', {waitUntil: 'domcontentloaded'}); 
-// //     await page.getByPlaceholder('UserName').fill('Test123');
-// //     await page.getByPlaceholder('Password').fill('Password1!');
-// //     await page.getByRole('button', { name: 'Login', exact: true }).click();
+    await page.goto('https://demoqa.com/login', {waitUntil: 'domcontentloaded'}); 
+    await page.getByPlaceholder('UserName').fill('Test123');
+    await page.getByPlaceholder('Password').fill('Password1!');
+    await page.getByRole('button', { name: 'Login', exact: true }).click();
 
-// //     // Verify successful login by checking for the presence of the logout button
-// //     await page.waitForURL('https://demoqa.com/profile');
-// //     await expect(page.locator('#userName-value')).toHaveText('Test123');
+    // Verify successful login by checking for the presence of the logout button
+    await page.waitForURL('https://demoqa.com/profile');
+    await expect(page.locator('#userName-value')).toHaveText('Test123');
 
-// //     // Save authentication state to a file
-// //     await page.context().storageState({ path: authFile });
+    // Save authentication state to a file
+    await page.context().storageState({ path: authFile });
 
 
-// // });
+});
 
 // setup('Authenticate user', async ({ page }) => {
 
