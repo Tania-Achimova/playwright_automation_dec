@@ -13,7 +13,7 @@ jobs:
     
     strategy:
       matrix:
-        os: [windows-latest, macos-latest]
+        os: [ubuntu-latestwindows-latest, macos-latest]
 
     steps:
       - name: Checkout code
@@ -31,7 +31,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test tests/fixture/lc-login.spec.ts
+        run: npx playwright test tests/fixture/demoqa-login.spec.ts
 
       - name: Upload Playwright report HTML
         if: always()
